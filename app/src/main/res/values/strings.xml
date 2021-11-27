@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Notification</string>
+    <string name="channelID">dawid</string>
+    <string name="channel_name">notification</string>
+    <string name="channel_description">Opis</string>
+    <string name="notification_title">Moja notyfikacja</string>
+    <string name="notification_text">Oby się udała</string>
+</resources>
