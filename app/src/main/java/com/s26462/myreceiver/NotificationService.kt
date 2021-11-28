@@ -19,16 +19,20 @@ class NotificationService : Service() {
             .show()
         createNotificationChannel()
         val notificationIntent = Intent(this, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this,0,notificationIntent,FLAG_MUTABLE)
+//        val notificationIntent = this.packageManager?.getLaunchIntentForPackage("com.s26462.shoppinglist.Shoppinglist")
+//        val pendingIntent = PendingIntent.getActivity(this,0,notificationIntent,FLAG_MUTABLE)
+        val pendingIntent = PendingIntent.getActivity(this,0,notificationIntent,0)
+        val message = intent?.getStringExtra("NotificationText")
 
         val notification = NotificationCompat.Builder(this,getString(R.string.channelID))
             .setContentTitle(getText(R.string.notification_title))
-            .setContentText(getText(R.string.notification_text))
+            .setContentText(message ?: getText(R.string.notification_text))
             .setSmallIcon(R.drawable.ic_baseline_notifications_24)
             .setContentIntent(pendingIntent)
             .build()
 
             startForeground(1,notification)
+
 
         return Service.START_NOT_STICKY
     }

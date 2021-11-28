@@ -3,6 +3,6 @@
     <string name="channelID">dawid</string>
     <string name="channel_name">notification</string>
     <string name="channel_description">Opis</string>
-    <string name="notification_title">Moja notyfikacja</string>
-    <string name="notification_text">Oby się udała</string>
+    <string name="notification_title">Dodano nowy produkt</string>
+    <string name="notification_text">Do Twojej listy zakupów dodano nowy produkt!</string>
 </resources>

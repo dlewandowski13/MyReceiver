@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import android.content.ComponentName
+import android.content.ContentValues.TAG
+import android.nfc.Tag
+import android.util.Log
 import java.security.AccessController.getContext
 
 
@@ -20,7 +23,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         myReceiver = MyReceiver()
-        registerReceiver(myReceiver, IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED))
+        Log.e(TAG,"MyReceiver")
+        registerReceiver(myReceiver, IntentFilter("PRODUCT_ADDED"))
+//        registerReceiver(myReceiver, IntentFilter("PRODUCT_ADDED"), "MY_PERMISSION", null)
 //        startNotificationService()
     }
 
@@ -29,9 +34,4 @@ class MainActivity : AppCompatActivity() {
         unregisterReceiver(myReceiver)
     }
 
-    fun startNotificationService(){
-        val intent = Intent(applicationContext,NotificationService::class.java)
-        startService(intent)
-
-    }
 }
