@@ -15,15 +15,12 @@ class MyReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if(intent?.action.equals("PRODUCT_ADDED")){
 //            Log.e(TAG, "onReveive")
-            Toast.makeText(context,"Broadcast Receiver", Toast.LENGTH_SHORT)
-                .show()
             val message = intent.getStringExtra("message")
             val intentNotification = Intent(context,NotificationService::class.java)
                 .putExtra("NotificationText",message)
-
-            Log.e(TAG, message.toString())
-            Toast.makeText(context,message ?: "message puste", Toast.LENGTH_SHORT)
-                .show()
+//                .putExtras(intent)
+//            val orgIntent = intentNotification.extras.toString()
+//            Log.e(TAG, orgIntent.toString())
 
             context.startService(intentNotification)
         }
